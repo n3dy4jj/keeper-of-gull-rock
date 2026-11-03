@@ -1,0 +1,128 @@
+/* ===== Colour and font plan ===== */
+:root {
+  --sea: #0b1a2b;
+  --card: #13283f;
+  --light: #ffd84d;
+  --text: #f2f4f7;
+}
+
+/* ===== Page layout ===== */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--sea);
+  color: var(--text);
+  font-family: Georgia, serif;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+header, footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+.game-title {
+  font-family: Verdana, sans-serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin: 0;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* ===== Story card ===== */
+.card {
+  background: var(--card);
+  max-width: 640px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 12px;
+  border-top: 4px solid var(--light);
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-family: Verdana, sans-serif;
+  color: var(--light);
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* ===== Choice buttons ===== */
+.choices {
+  list-style: none;
+  padding: 0;
+}
+
+.choice {
+  display: block;
+  margin: 0.75rem 0;
+  padding: 1rem;
+  background: var(--light);
+  color: var(--sea);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.choice:hover,
+.choice:focus {
+  transform: scale(1.03);
+  outline: 3px solid var(--text);
+}
+
+.end-tag {
+  font-family: Verdana, sans-serif;
+  color: var(--light);
+  font-weight: bold;
+}
+
+footer a {
+  color: var(--light);
+}
+
+/* ===== Lighthouse beam animation ===== */
+.beam {
+  position: fixed;
+  top: -50%;
+  left: 50%;
+  width: 200vmax;
+  height: 200vmax;
+  background: conic-gradient(rgba(255, 216, 77, 0.12) 0deg 20deg, transparent 20deg);
+  transform-origin: 0 0;
+  animation: sweep 8s linear infinite;
+  pointer-events: none;
+}
+
+.ending .beam {
+  animation-duration: 3s;
+}
+
+@keyframes sweep {
+  to { transform: rotate(360deg); }
+}
+
+/* Turn off animation for people who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .beam { animation: none; }
+}
+
+/* ===== Small screens ===== */
+@media (max-width: 500px) {
+  .card { padding: 1.25rem; }
+  h1 { font-size: 1.4rem; }
+}
