@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Jayden Rasilim">
   <meta name="description" content="Design documentation for The Keeper of Gull Rock: proposal, flowchart, wireframes, colour plan, timeline, testing table and evaluation.">
   <title>Project Documentation | The Keeper of Gull Rock</title>
   <link rel="stylesheet" href="style.css">
@@ -16,7 +17,8 @@
   <main>
     <article class="card doc">
       <h1>Project Documentation</h1>
-      <p>This page covers the planning, production and testing behind <a href="index.html" style="color:#ffd84d">The Keeper of Gull Rock</a>, an interactive choose your own adventure website with 16 decision pages and 6 endings.</p>
+      <p class="byline">Jayden Rasilim &middot; Year 10 Design and Technology</p>
+      <p>This page covers the planning, production and testing behind <a href="index.html" style="color:#ffd84d">The Keeper of Gull Rock</a>, an interactive choose your own adventure website with 17 decision pages and 6 endings.</p>
 
       <nav class="contents">
         <p><strong>Contents:</strong>
@@ -59,8 +61,8 @@
 
       <h3>Story flowchart</h3>
       <figure>
-        <img src="img/flowchart.svg" alt="Flowchart of all 22 pages. The start page branches to two pages, which branch again through sixteen decision pages, and arrows lead to six ending pages shown in green." width="800" height="600">
-        <figcaption>Every page and every link. Gold is the start, blue are the 16 decision pages, green are the 6 endings. Drawing this first is what stopped any dead ends: each box has to have at least one arrow leaving it.</figcaption>
+        <img src="img/flowchart.svg" alt="Flowchart of all 23 story pages. The start page branches to two pages, which branch again through seventeen decision pages, and arrows lead to six ending pages shown in green." width="800" height="600">
+        <figcaption>Every page and every link. Gold is the start, blue are the 17 decision pages, green are the 6 endings. Drawing this first is what stopped any dead ends: each box has to have at least one arrow leaving it.</figcaption>
       </figure>
 
       <h3>Wireframes</h3>
@@ -143,17 +145,17 @@
       <table>
         <tr><th>Area</th><th>What was done</th></tr>
         <tr><td>Tools</td><td>Hand written HTML5 and CSS3. No frameworks and no JavaScript. Version control with Git, hosted on GitHub Pages.</td></tr>
-        <tr><td>File structure</td><td>23 HTML files in the root, one shared <code>style.css</code>, images in <code>/img</code>, audio in <code>/audio</code>. Naming is consistent: <code>index.html</code> plus <code>page2</code> to <code>page16</code> for decisions, and <code>end1</code> to <code>end6</code> for endings.</td></tr>
+        <tr><td>File structure</td><td>24 HTML files in the root, one shared <code>style.css</code>, images in <code>/img</code>, audio in <code>/audio</code>. Naming is consistent: <code>index.html</code> plus <code>page2</code> to <code>page17</code> for decisions, and <code>end1</code> to <code>end6</code> for endings.</td></tr>
         <tr><td>Code quality</td><td>Two space indentation throughout, comments above each block in the HTML and section comments in the CSS, semantic tags (<code>header</code>, <code>main</code>, <code>article</code>, <code>figure</code>, <code>footer</code>) rather than plain divs.</td></tr>
         <tr><td>Ethical practice</td><td>Every image is original SVG drawn for this project and the storm audio was generated from scratch, so there is no copyright issue. No tracking, no cookies and no data collected from the player.</td></tr>
-        <tr><td>Accessibility</td><td>Alt text on all 10 images, <code>lang="en"</code> on every page, one h1 per page, a unique meta description per page, and <code>prefers-reduced-motion</code> support so the beam animation stops for anyone who gets motion sick.</td></tr>
-        <tr><td>Sustainable practice</td><td>Total site weight is well under 200KB. SVG instead of photos, one audio file reused, and <code>preload="none"</code> so the sound only downloads if the player asks for it.</td></tr>
+        <tr><td>Accessibility</td><td>Alt text on all 11 images (10 story scenes plus the flowchart), <code>lang="en"</code> on every page, one h1 per page, a unique meta description per page, and <code>prefers-reduced-motion</code> support so the beam animation stops for anyone who gets motion sick.</td></tr>
+        <tr><td>Sustainable practice</td><td>Story pages load in about 6KB to 16KB, counting the HTML, the shared stylesheet and any SVG scene. This documentation page is the heaviest at about 89KB, because the flowchart is a detailed SVG. The storm audio adds 63KB on the seven pages that have sound, but <code>preload="none"</code> means it is only downloaded if the player presses play. Using SVG instead of photos and reusing one audio file is what keeps these numbers small.</td></tr>
       </table>
 
       <h2 id="testing">4. Testing</h2>
 
       <h3>4.1 Link testing: every link on every page</h3>
-      <p>All 38 choice links were checked by loading each page in Chromium and confirming the target file exists and opens. Page count: 16 decision pages, 6 endings, 0 dead ends, 0 pages that cannot be reached from the start.</p>
+      <p>All 40 choice links were checked by loading each page in Chromium and confirming the target file exists and opens. Page count: 17 decision pages, 6 endings, 0 dead ends, 0 pages that cannot be reached from the start.</p>
       <div class="table-scroll">
       <table>
         <tr><th>Page</th><th>Type</th><th>Links and where they go</th><th>Result</th></tr>
@@ -172,7 +174,7 @@
         <tr>
           <td><code>page11.html</code></td>
           <td>Decision</td>
-          <td>Talk to the Mary Ellen &rarr; <code>page6.html</code><br>Switch the radio off &rarr; <code>end3.html</code></td>
+          <td>Keep the channel open &rarr; <code>page17.html</code><br>Switch the radio off &rarr; <code>end3.html</code></td>
           <td class="pass">Pass</td>
         </tr>
         <tr>
@@ -203,6 +205,12 @@
           <td><code>page16.html</code></td>
           <td>Decision</td>
           <td>Signal to the old steamer &rarr; <code>end1.html</code><br>Signal to the fishing boat &rarr; <code>end6.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page17.html</code></td>
+          <td>Decision</td>
+          <td>Ask the captain for his name &rarr; <code>page12.html</code><br>Check the old keeper's logbook &rarr; <code>page13.html</code></td>
           <td class="pass">Pass</td>
         </tr>
         <tr>
@@ -301,7 +309,7 @@
         <tr><td>Laptop</td><td>1280 x 800</td><td>Card centred, beam animation visible behind the card</td><td class="pass">Pass</td></tr>
       </table>
       </div>
-      <p>Automated check across all 23 pages at each of those three widths: 0 console errors, 0 failed file requests, 0 pages scrolling sideways, 0 images missing alt text, 0 choice buttons under 44px tall.</p>
+      <p>Automated check across all 24 pages at each of those three widths: 0 console errors, 0 failed file requests, 0 pages scrolling sideways, 0 images missing alt text, 0 choice buttons under 44px tall.</p>
 
       <h3>4.3 Problems found and fixed</h3>
       <div class="table-scroll">
@@ -312,10 +320,14 @@
         <tr><td>Round 1</td><td>The green steamer appeared on page16 with no build up, so the twist felt random.</td><td>Planted four clues earlier: the green glow on page2, the stuck green dial on page3, the pencilled photo on page7 and the circled sketch on page13.</td></tr>
         <tr><td>Round 1</td><td>Story paragraphs were only 2 to 3 sentences, so pages felt thin.</td><td>Rewrote every page to 4 to 6 sentences and made the endings longer than the decision pages.</td></tr>
         <tr><td>Round 1</td><td>Ending pages had both a Play again button and a Restart link in the footer, which did the same thing.</td><td>Removed Restart from ending footers and left one clear Play again button.</td></tr>
-        <tr><td>Round 2</td><td>The documentation page scrolled 4px sideways on a 375px phone. Cause: the story card used <code>width: 100%</code> with <code>padding</code> on top of it, so the card ended up wider than the screen.</td><td>Added <code>box-sizing: border-box</code> to all elements so padding counts inside the width. This was affecting every page, not just this one.</td></tr>
-        <tr><td>Round 2</td><td>The wide testing tables forced the whole page wider on a phone instead of scrolling inside their own box.</td><td>Moved the <code>min-width</code> onto <code>.table-scroll table</code> only, so the narrow tables wrap and just the long ones scroll sideways.</td></tr>
+        <tr><td>Round 2</td><td>The documentation page scrolled 4px sideways on a 375px phone. The story card used <code>width: 100%</code> with padding added on top of it, so the card came out wider than the screen.</td><td>Added <code>box-sizing: border-box</code> to all elements so padding counts inside the width. This was affecting every page, not just this one.</td></tr>
+        <tr><td>Round 2</td><td>The wide testing tables pushed the whole page wider on a phone instead of scrolling inside their own box.</td><td>Moved the <code>min-width</code> onto <code>.table-scroll table</code> only, so narrow tables wrap and only the long ones scroll sideways.</td></tr>
         <tr><td>Round 2</td><td>The flowchart image was fixed at 800px wide and pushed past the edge of a phone screen.</td><td>Added a rule so documentation images scale to 100% of the card width.</td></tr>
-        <tr><td>Round 3</td><td>Re-checked all 23 pages in Chromium at 375px, 768px and 1280px: 0 console errors, 0 failed requests, 0 pages scrolling sideways, every image loaded with alt text, every choice button at least 44px tall.</td><td>No changes needed.</td></tr>
+        <tr><td>Round 3</td><td>Page11 sent the reader back to page6, a page they may already have read, which looks like a broken link rather than a real choice.</td><td>Wrote page17, "Closer Than It Should Be", so that route has its own scene before carrying on to page12 or page13. Decision pages went from 16 to 17.</td></tr>
+        <tr><td>Round 3</td><td>Sound was on 1 page out of 23, which is not enough to count as multimedia across the site.</td><td>Added the same audio block to all six ending pages, so sound now plays on 7 pages.</td></tr>
+        <tr><td>Round 3</td><td>Section 3 claimed the site was "well under 200KB", which was a guess and not a measurement.</td><td>Measured the real page weights and put the actual figures in. Those numbers are now generated from the files themselves when this page is built, so they cannot drift out of date.</td></tr>
+        <tr><td>Round 3</td><td>Section 3 said 10 images have alt text. The flowchart on this page is an eleventh image.</td><td>Corrected the count to 11.</td></tr>
+        <tr><td>Round 4</td><td>Re-checked all 24 pages in Chromium at 375px, 768px and 1280px: 0 console errors, 0 failed requests, 0 pages scrolling sideways, every image loaded with alt text, every choice button at least 44px tall, every page has a unique meta description.</td><td>No changes needed.</td></tr>
       </table>
       </div>
 
@@ -342,7 +354,7 @@
 
       <h3>Strengths</h3>
       <ul>
-        <li>The branching holds up. 16 decision pages, 6 genuinely different endings, no dead ends and nothing unreachable, which was confirmed by testing rather than assumed.</li>
+        <li>The branching holds up. 17 decision pages, 6 genuinely different endings, no dead ends and nothing unreachable, which was confirmed by testing rather than assumed.</li>
         <li>The twist is earned. Four separate clues point at the green steamer before it appears, so the ghost ship ending feels planned instead of random.</li>
         <li>Paths rejoin on purpose. Several routes meet at page14 and page16, which keeps the page count manageable without making the choices feel fake, because the reader arrives with different information each time.</li>
         <li>It is genuinely accessible: all four colour combinations pass WCAG AA, every image has alt text, and the animation respects reduced motion settings.</li>
@@ -352,9 +364,8 @@
       <h3>Weaknesses</h3>
       <ul>
         <li>Choices are not remembered. Firing the flare on page5 has no effect on any later page, so some decisions change the route but not the world.</li>
-        <li>Page 11 loops back to page6, which a reader who has already been there will notice and may read as a mistake.</li>
         <li>The artwork is simple shapes. It sets the mood but it will not impress anyone next to a real illustration.</li>
-        <li>Only one sound, and it is only on the opening page.</li>
+        <li>There is still only one sound in the project. It now plays on the opening page and all six endings, but a storm loop fits the quiet endings less well than a sound written for each one would.</li>
         <li>Endings 1 and 6 are both good outcomes and sit quite close together in tone.</li>
       </ul>
 
@@ -362,8 +373,7 @@
       <ol>
         <li>Store one or two flags in <code>localStorage</code>, such as whether the flare was fired or the diary was read, and change a sentence on a later page to match. That would turn the branching into something closer to a real game state.</li>
         <li>Add an endings tracker, so a replayer can see which of the 6 they have found. That is the single best replay hook and it is about fifteen lines of code.</li>
-        <li>Give page11 its own content instead of sending the reader back to page6.</li>
-        <li>Add a short sound to each ending so the payoff is not silent.</li>
+        <li>Replace the shared storm loop on the endings with a sound that suits each one, such as a ship's bell for the ghost ship and gulls for the morning inspector.</li>
         <li>Pull endings 1 and 6 further apart, so that one is clearly the lucky escape and the other is clearly the earned win.</li>
       </ol>
 
