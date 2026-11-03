@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050d18"/><stop offset="1" stop-color="#17314c"/></linearGradient>
+<linearGradient id="dawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a5a6b"/><stop offset="1" stop-color="#7c8794"/></linearGradient></defs>
+<rect width="800" height="360" fill="url(#dawn)"/><path d="M0 250 Q100 236 200 250 T400 250 T600 250 T800 250 L800 360 L0 360 Z" fill="#243a4e"/><path d="M0 272 Q130 258 260 272 T520 272 T800 272 L800 360 L0 360 Z" fill="#071220"/><path d="M120 300 L250 262 L330 300 Z" fill="#0d1620"/><path d="M480 300 L600 258 L700 300 Z" fill="#0d1620"/><line x1="300" y1="300" x2="400" y2="276" stroke="#3a2b1d" stroke-width="9"/><line x1="330" y1="302" x2="446" y2="302" stroke="#3a2b1d" stroke-width="7"/><line x1="430" y1="296" x2="470" y2="268" stroke="#3a2b1d" stroke-width="6"/>
+</svg>

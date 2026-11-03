@@ -6,6 +6,13 @@
   --text: #f2f4f7;
 }
 
+/* Padding counts inside an element's width, not on top of it */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* ===== Page layout ===== */
 body {
   margin: 0;
@@ -125,4 +132,155 @@ footer a {
 @media (max-width: 500px) {
   .card { padding: 1.25rem; }
   h1 { font-size: 1.4rem; }
+}
+
+/* ===== Scene images ===== */
+.scene {
+  margin: 0 0 1.25rem 0;
+}
+
+.scene img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #28455f;
+}
+
+/* ===== Sound player ===== */
+.sound {
+  margin: 1.25rem 0 0 0;
+  padding: 0.75rem;
+  background: #0e2135;
+  border-radius: 8px;
+  border: 1px solid #28455f;
+}
+
+.sound figcaption {
+  font-family: Verdana, sans-serif;
+  font-size: 0.8rem;
+  color: #b9c9da;
+  margin-bottom: 0.5rem;
+}
+
+.sound audio {
+  width: 100%;
+}
+
+/* ===== Documentation page ===== */
+.doc {
+  max-width: 820px;
+}
+
+.doc h2 {
+  font-family: Verdana, sans-serif;
+  color: var(--light);
+  border-bottom: 1px solid #28455f;
+  padding-bottom: 0.35rem;
+  margin-top: 2.5rem;
+}
+
+.doc h3 {
+  font-family: Verdana, sans-serif;
+  color: #ffe9a3;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.doc th,
+.doc td {
+  border: 1px solid #28455f;
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.doc th {
+  background: #0e2135;
+  font-family: Verdana, sans-serif;
+  font-size: 0.85rem;
+  color: var(--light);
+}
+
+.doc .pass {
+  color: #7af2bd;
+  font-weight: bold;
+}
+
+.doc .fail {
+  color: #ff9a8b;
+  font-weight: bold;
+}
+
+.doc figure {
+  margin: 1rem 0;
+  background: #0e2135;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #28455f;
+}
+
+.doc figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.doc figcaption {
+  font-size: 0.85rem;
+  color: #b9c9da;
+  margin-top: 0.6rem;
+}
+
+.doc .contents a {
+  color: var(--light);
+}
+
+/* Scrollable tables on phones */
+@media (max-width: 600px) {
+  .table-scroll {
+    overflow-x: auto;
+  }
+
+  /* Only the wide testing tables scroll sideways inside their own box */
+  .table-scroll table {
+    min-width: 520px;
+  }
+
+  /* Every other table just wraps and gets a smaller font */
+  .doc table {
+    font-size: 0.85rem;
+  }
+
+  .doc td,
+  .doc th {
+    padding: 0.4rem;
+  }
+}
+
+/* Documentation figures: flowchart image must shrink on small screens */
+.doc figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Stop long file names and code from pushing the page wider than the screen */
+.doc,
+.doc p,
+.doc li,
+.doc td {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.doc code {
+  font-size: 0.9em;
 }

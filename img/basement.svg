@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050d18"/><stop offset="1" stop-color="#17314c"/></linearGradient>
+</defs>
+<rect width="800" height="360" fill="#070f1a"/><rect x="60" y="90" width="300" height="16" fill="#132337"/><rect x="150" y="56" width="90" height="34" fill="#2a3f58"/><rect x="258" y="50" width="60" height="40" fill="#3a2f22"/><text x="195" y="78" font-family="Verdana" font-size="13" fill="#ffd84d" text-anchor="middle">FUSES</text><path d="M520 360 L520 120 L760 120 L760 360 Z" fill="#0b1724"/><rect x="520" y="140" width="240" height="10" fill="#122035"/><rect x="520" y="170" width="240" height="10" fill="#122035"/><rect x="520" y="200" width="240" height="10" fill="#122035"/><rect x="520" y="230" width="240" height="10" fill="#122035"/><rect x="520" y="260" width="240" height="10" fill="#122035"/><rect x="520" y="290" width="240" height="10" fill="#122035"/><rect x="520" y="320" width="240" height="10" fill="#122035"/><path d="M0 240 Q200 226 400 240 T800 240 L800 360 L0 360 Z" fill="#14364f" fill-opacity="0.9"/><path d="M0 256 Q220 244 440 256 T800 256 L800 360 L0 360 Z" fill="#0d2639"/>
+</svg>

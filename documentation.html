@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Design documentation for The Keeper of Gull Rock: proposal, flowchart, wireframes, colour plan, timeline, testing table and evaluation.">
+  <title>Project Documentation | The Keeper of Gull Rock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <p class="game-title">The Keeper of Gull Rock</p>
+  </header>
+
+  <main>
+    <article class="card doc">
+      <h1>Project Documentation</h1>
+      <p>This page covers the planning, production and testing behind <a href="index.html" style="color:#ffd84d">The Keeper of Gull Rock</a>, an interactive choose your own adventure website with 16 decision pages and 6 endings.</p>
+
+      <nav class="contents">
+        <p><strong>Contents:</strong>
+          <a href="#problem">1. Problem</a> &middot;
+          <a href="#design">2. Design and planning</a> &middot;
+          <a href="#production">3. Production</a> &middot;
+          <a href="#testing">4. Testing</a> &middot;
+          <a href="#feedback">5. User feedback</a> &middot;
+          <a href="#evaluation">6. Evaluation</a>
+        </p>
+      </nav>
+
+      <h2 id="problem">1. Problem identification and analysis</h2>
+
+      <h3>The problem</h3>
+      <p>Reading is dropping off for students in Years 7 to 9. A lot of them say books are boring because nothing they do changes what happens. Meanwhile the same students will happily spend an hour on a phone game. The gap is not reading ability, it is control. There are not many short, free, readable stories where the reader actually makes the decisions and has a reason to go back and try again.</p>
+
+      <h3>Target audience</h3>
+      <p>Students aged 12 to 15, reading at about a Year 7 to Year 9 level, mostly on a school laptop or a phone. They have short blocks of free time, like a wet weather lunch or the last ten minutes of a lesson. They are used to games, so they expect a choice to matter and they expect to be able to restart instantly.</p>
+
+      <h3>User needs</h3>
+      <ul>
+        <li>Short pages, so one page can be read in under a minute</li>
+        <li>Choices that are easy to understand and clearly lead somewhere different</li>
+        <li>Big tap targets, because most of them will be on a phone</li>
+        <li>More than one ending, so there is a reason to replay</li>
+        <li>No sign up, no download, no cost</li>
+      </ul>
+
+      <h3>Factors considered</h3>
+      <table>
+        <tr><th>Factor</th><th>How it shaped the design</th></tr>
+        <tr><td><strong>Functional</strong></td><td>Must work in any browser with no plugins. Every page is plain HTML and CSS, so nothing breaks if JavaScript is blocked on a school network. Pages are under 60KB so they load on slow wifi.</td></tr>
+        <tr><td><strong>Social</strong></td><td>The story is a ghost story, not a violent one. No gore, no swearing, nothing that would get it blocked by a school filter or upset a younger reader. The sound is off until the player presses play, so nobody gets blasted in a quiet classroom.</td></tr>
+        <tr><td><strong>Economic</strong></td><td>Total cost is zero. Hosted free on GitHub Pages, all artwork drawn by hand in SVG and the audio generated from scratch, so there are no stock image or sound licences to pay for.</td></tr>
+        <tr><td><strong>Environmental</strong></td><td>SVG images are a few kilobytes each instead of a few hundred, and the audio is a single short looped file instead of one per page. Less data transferred means less energy used per visit, which matters when hundreds of students load the same site.</td></tr>
+      </table>
+
+      <h2 id="design">2. Design and planning</h2>
+
+      <h3>Story flowchart</h3>
+      <figure>
+        <img src="img/flowchart.svg" alt="Flowchart of all 22 pages. The start page branches to two pages, which branch again through sixteen decision pages, and arrows lead to six ending pages shown in green." width="800" height="600">
+        <figcaption>Every page and every link. Gold is the start, blue are the 16 decision pages, green are the 6 endings. Drawing this first is what stopped any dead ends: each box has to have at least one arrow leaving it.</figcaption>
+      </figure>
+
+      <h3>Wireframes</h3>
+      <figure>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300">
+  <rect width="820" height="300" fill="none"/>
+  <g stroke="#8aa3bd" stroke-width="2" fill="none" font-family="Verdana" font-size="11">
+    <rect x="20" y="20" width="360" height="260" rx="6"/>
+    <text x="30" y="14" fill="#ffd84d">Decision page (desktop)</text>
+    <rect x="40" y="36" width="320" height="26" fill="#1b3449"/>
+    <text x="50" y="54" fill="#b9c9da" stroke="none">HEADER: game title, same every page</text>
+    <rect x="40" y="74" width="320" height="70"/>
+    <text x="50" y="114" fill="#b9c9da" stroke="none">SCENE IMAGE (with alt text)</text>
+    <rect x="40" y="154" width="320" height="44"/>
+    <text x="50" y="180" fill="#b9c9da" stroke="none">h1 + story paragraph</text>
+    <rect x="40" y="208" width="320" height="24" fill="#3d2f12"/>
+    <text x="50" y="224" fill="#ffd84d" stroke="none">CHOICE BUTTON 1</text>
+    <rect x="40" y="238" width="320" height="24" fill="#3d2f12"/>
+    <text x="50" y="254" fill="#ffd84d" stroke="none">CHOICE BUTTON 2</text>
+    <rect x="420" y="20" width="170" height="260" rx="6"/>
+    <text x="430" y="14" fill="#ffd84d">Same page on a phone</text>
+    <rect x="435" y="36" width="140" height="20"/>
+    <rect x="435" y="64" width="140" height="56"/>
+    <text x="445" y="96" fill="#b9c9da" stroke="none" font-size="9">image scales to 100%</text>
+    <rect x="435" y="128" width="140" height="56"/>
+    <text x="445" y="160" fill="#b9c9da" stroke="none" font-size="9">text wraps, 1.25rem pad</text>
+    <rect x="435" y="192" width="140" height="28" fill="#3d2f12"/>
+    <rect x="435" y="228" width="140" height="28" fill="#3d2f12"/>
+    <text x="445" y="270" fill="#b9c9da" stroke="none" font-size="9">buttons stay 48px tall</text>
+    <rect x="630" y="20" width="170" height="260" rx="6"/>
+    <text x="640" y="14" fill="#7af2bd">Ending page</text>
+    <rect x="645" y="36" width="140" height="20"/>
+    <rect x="645" y="64" width="140" height="56"/>
+    <text x="655" y="96" fill="#b9c9da" stroke="none" font-size="9">ending artwork</text>
+    <rect x="645" y="128" width="140" height="70"/>
+    <text x="655" y="166" fill="#b9c9da" stroke="none" font-size="9">longer ending text</text>
+    <text x="655" y="216" fill="#7af2bd" stroke="none" font-size="10">THE END</text>
+    <rect x="645" y="226" width="140" height="28" fill="#3d2f12"/>
+    <text x="655" y="245" fill="#ffd84d" stroke="none" font-size="9">Play again (only link)</text>
+  </g>
+</svg>
+        <figcaption>Three layouts planned before any code was written: a decision page on desktop, the same page on a phone, and an ending page. The ending layout deliberately drops the second choice button so there is only one way out.</figcaption>
+      </figure>
+
+      <h3>Colour and font plan</h3>
+      <table>
+        <tr><th>Role</th><th>Value</th><th>Why</th></tr>
+        <tr><td>Sea (background)</td><td><code>#0b1a2b</code></td><td>Very dark blue. Suits a night time storm and is easier to read for a long time than black.</td></tr>
+        <tr><td>Card</td><td><code>#13283f</code></td><td>One step lighter than the background so the story block lifts off the page.</td></tr>
+        <tr><td>Lamp (accent)</td><td><code>#ffd84d</code></td><td>Lighthouse yellow. Used only for headings and buttons so the eye always knows where the choices are.</td></tr>
+        <tr><td>Text</td><td><code>#f2f4f7</code></td><td>Off white rather than pure white, which reduces glare on a dark background.</td></tr>
+        <tr><td>Heading font</td><td>Verdana, sans-serif</td><td>Wide letters, very readable on small screens. Used for the title, headings and buttons.</td></tr>
+        <tr><td>Body font</td><td>Georgia, serif</td><td>A serif font makes it feel like a story instead of a web app, and Georgia was designed for screens.</td></tr>
+      </table>
+      <p>All four colours are set as CSS custom properties in <code>:root</code>, so one change updates all 23 files.</p>
+
+      <h3>Accessibility check on those colours</h3>
+      <div class="table-scroll">
+      <table>
+        <tr><th>Combination</th><th>Contrast ratio</th><th>Used for</th><th>WCAG AA (4.5:1)</th></tr>
+        <tr><td>Body text #f2f4f7 on card #13283f</td><td>13.58:1</td><td>Body paragraphs</td><td class="pass">Pass</td></tr>
+        <tr><td>Headings #ffd84d on card #13283f</td><td>10.82:1</td><td>h1 and page title</td><td class="pass">Pass</td></tr>
+        <tr><td>Button text #0b1a2b on button #ffd84d</td><td>12.68:1</td><td>Choice buttons</td><td class="pass">Pass</td></tr>
+        <tr><td>Caption #b9c9da on panel #0e2135</td><td>9.65:1</td><td>Figure captions</td><td class="pass">Pass</td></tr>
+      </table>
+      </div>
+
+      <h3>Timeline</h3>
+      <table>
+        <tr><th>Week</th><th>Stage</th><th>Tasks</th></tr>
+        <tr><td>Week 1</td><td>Research and proposal</td><td>Pick the problem, write up the audience and user needs, list the functional, social, economic and environmental factors</td></tr>
+        <tr><td>Week 2</td><td>Design and planning</td><td>Draw the story flowchart, sketch wireframes, lock in the colour and font plan</td></tr>
+        <tr><td>Week 3</td><td>Build the skeleton</td><td>Write index.html and the stylesheet, then copy the structure to all 16 decision pages</td></tr>
+        <tr><td>Week 4</td><td>Write the story</td><td>Full story text on every page, including all 6 endings, then spell check</td></tr>
+        <tr><td>Week 5</td><td>Multimedia and polish</td><td>Draw the images, add alt text, add the sound, check colour contrast and mobile layout</td></tr>
+        <tr><td>Week 6</td><td>Test and evaluate</td><td>Click every link on 3 devices, run user testing with 4 people, fix what they find, write the evaluation</td></tr>
+      </table>
+
+      <h2 id="production">3. Production: tools and safe, ethical practice</h2>
+      <table>
+        <tr><th>Area</th><th>What was done</th></tr>
+        <tr><td>Tools</td><td>Hand written HTML5 and CSS3. No frameworks and no JavaScript. Version control with Git, hosted on GitHub Pages.</td></tr>
+        <tr><td>File structure</td><td>23 HTML files in the root, one shared <code>style.css</code>, images in <code>/img</code>, audio in <code>/audio</code>. Naming is consistent: <code>index.html</code> plus <code>page2</code> to <code>page16</code> for decisions, and <code>end1</code> to <code>end6</code> for endings.</td></tr>
+        <tr><td>Code quality</td><td>Two space indentation throughout, comments above each block in the HTML and section comments in the CSS, semantic tags (<code>header</code>, <code>main</code>, <code>article</code>, <code>figure</code>, <code>footer</code>) rather than plain divs.</td></tr>
+        <tr><td>Ethical practice</td><td>Every image is original SVG drawn for this project and the storm audio was generated from scratch, so there is no copyright issue. No tracking, no cookies and no data collected from the player.</td></tr>
+        <tr><td>Accessibility</td><td>Alt text on all 10 images, <code>lang="en"</code> on every page, one h1 per page, a unique meta description per page, and <code>prefers-reduced-motion</code> support so the beam animation stops for anyone who gets motion sick.</td></tr>
+        <tr><td>Sustainable practice</td><td>Total site weight is well under 200KB. SVG instead of photos, one audio file reused, and <code>preload="none"</code> so the sound only downloads if the player asks for it.</td></tr>
+      </table>
+
+      <h2 id="testing">4. Testing</h2>
+
+      <h3>4.1 Link testing: every link on every page</h3>
+      <p>All 38 choice links were checked by loading each page in Chromium and confirming the target file exists and opens. Page count: 16 decision pages, 6 endings, 0 dead ends, 0 pages that cannot be reached from the start.</p>
+      <div class="table-scroll">
+      <table>
+        <tr><th>Page</th><th>Type</th><th>Links and where they go</th><th>Result</th></tr>
+        <tr>
+          <td><code>index.html</code></td>
+          <td>Decision</td>
+          <td>Climb the tower to check the lamp &rarr; <code>page2.html</code><br>Run to the radio room for help &rarr; <code>page3.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page10.html</code></td>
+          <td>Decision</td>
+          <td>Row out to guide them in &rarr; <code>end2.html</code><br>Build a bonfire on the headland &rarr; <code>page16.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page11.html</code></td>
+          <td>Decision</td>
+          <td>Talk to the Mary Ellen &rarr; <code>page6.html</code><br>Switch the radio off &rarr; <code>end3.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page12.html</code></td>
+          <td>Decision</td>
+          <td>Tell him the truth: William is gone &rarr; <code>end4.html</code><br>Look up the Hart family in the logbook &rarr; <code>page13.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page13.html</code></td>
+          <td>Decision</td>
+          <td>Search for William's diary &rarr; <code>page14.html</code><br>Close the book and wait for morning &rarr; <code>end5.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page14.html</code></td>
+          <td>Decision</td>
+          <td>Follow the sketch to the basement &rarr; <code>page15.html</code><br>Light a signal fire instead &rarr; <code>page16.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page15.html</code></td>
+          <td>Decision</td>
+          <td>Race up and fit the fuse &rarr; <code>end6.html</code><br>Light a signal fire on the way &rarr; <code>page16.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page16.html</code></td>
+          <td>Decision</td>
+          <td>Signal to the old steamer &rarr; <code>end1.html</code><br>Signal to the fishing boat &rarr; <code>end6.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page2.html</code></td>
+          <td>Decision</td>
+          <td>Try to fix the lamp &rarr; <code>page4.html</code><br>Fire the emergency flare gun &rarr; <code>page5.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page3.html</code></td>
+          <td>Decision</td>
+          <td>Answer the voice &rarr; <code>page6.html</code><br>Ignore it and check the generator &rarr; <code>page7.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page4.html</code></td>
+          <td>Decision</td>
+          <td>Go down to the basement &rarr; <code>page8.html</code><br>Flash a torch in Morse code instead &rarr; <code>page9.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page5.html</code></td>
+          <td>Decision</td>
+          <td>Sprint down to the beach &rarr; <code>page10.html</code><br>Radio a warning to the boat &rarr; <code>page11.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page6.html</code></td>
+          <td>Decision</td>
+          <td>Ask the captain for his name &rarr; <code>page12.html</code><br>Check the old keeper's logbook &rarr; <code>page13.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page7.html</code></td>
+          <td>Decision</td>
+          <td>Head to the basement for parts &rarr; <code>page8.html</code><br>Read the diary &rarr; <code>page14.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page8.html</code></td>
+          <td>Decision</td>
+          <td>Grab the fuses &rarr; <code>page15.html</code><br>Grab the logbook &rarr; <code>page14.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>page9.html</code></td>
+          <td>Decision</td>
+          <td>Flash back your name &rarr; <code>page16.html</code><br>Flash: TURN NORTH NOW &rarr; <code>end1.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>end1.html</code></td>
+          <td>Ending</td>
+          <td>Play again &rarr; <code>index.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>end2.html</code></td>
+          <td>Ending</td>
+          <td>Play again &rarr; <code>index.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>end3.html</code></td>
+          <td>Ending</td>
+          <td>Play again &rarr; <code>index.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>end4.html</code></td>
+          <td>Ending</td>
+          <td>Play again &rarr; <code>index.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>end5.html</code></td>
+          <td>Ending</td>
+          <td>Play again &rarr; <code>index.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+        <tr>
+          <td><code>end6.html</code></td>
+          <td>Ending</td>
+          <td>Play again &rarr; <code>index.html</code></td>
+          <td class="pass">Pass</td>
+        </tr>
+      </table>
+      </div>
+
+      <h3>4.2 Device testing</h3>
+      <div class="table-scroll">
+      <table>
+        <tr><th>Device</th><th>Screen size</th><th>What happened</th><th>Result</th></tr>
+        <tr><td>Phone</td><td>375 x 667 (iPhone SE)</td><td>Card padding drops to 1.25rem, buttons stay full width and 48px tall, no sideways scrolling</td><td class="pass">Pass</td></tr>
+        <tr><td>Tablet</td><td>768 x 1024 (iPad)</td><td>Card centred at its 640px maximum, images scale to fit</td><td class="pass">Pass</td></tr>
+        <tr><td>Laptop</td><td>1280 x 800</td><td>Card centred, beam animation visible behind the card</td><td class="pass">Pass</td></tr>
+      </table>
+      </div>
+      <p>Automated check across all 23 pages at each of those three widths: 0 console errors, 0 failed file requests, 0 pages scrolling sideways, 0 images missing alt text, 0 choice buttons under 44px tall.</p>
+
+      <h3>4.3 Problems found and fixed</h3>
+      <div class="table-scroll">
+      <table>
+        <tr><th>Round</th><th>Problem found</th><th>Fix</th></tr>
+        <tr><td>Round 1</td><td>All 22 pages linked to <code>documentation.html</code>, which did not exist yet. Every footer link returned a 404.</td><td>Built the documentation page so all 22 links resolve.</td></tr>
+        <tr><td>Round 1</td><td>No images or sound anywhere. The only multimedia was the CSS beam animation.</td><td>Drew 10 original SVG scenes and generated an original storm audio loop. Every image got an alt attribute.</td></tr>
+        <tr><td>Round 1</td><td>The green steamer appeared on page16 with no build up, so the twist felt random.</td><td>Planted four clues earlier: the green glow on page2, the stuck green dial on page3, the pencilled photo on page7 and the circled sketch on page13.</td></tr>
+        <tr><td>Round 1</td><td>Story paragraphs were only 2 to 3 sentences, so pages felt thin.</td><td>Rewrote every page to 4 to 6 sentences and made the endings longer than the decision pages.</td></tr>
+        <tr><td>Round 1</td><td>Ending pages had both a Play again button and a Restart link in the footer, which did the same thing.</td><td>Removed Restart from ending footers and left one clear Play again button.</td></tr>
+        <tr><td>Round 2</td><td>The documentation page scrolled 4px sideways on a 375px phone. Cause: the story card used <code>width: 100%</code> with <code>padding</code> on top of it, so the card ended up wider than the screen.</td><td>Added <code>box-sizing: border-box</code> to all elements so padding counts inside the width. This was affecting every page, not just this one.</td></tr>
+        <tr><td>Round 2</td><td>The wide testing tables forced the whole page wider on a phone instead of scrolling inside their own box.</td><td>Moved the <code>min-width</code> onto <code>.table-scroll table</code> only, so the narrow tables wrap and just the long ones scroll sideways.</td></tr>
+        <tr><td>Round 2</td><td>The flowchart image was fixed at 800px wide and pushed past the edge of a phone screen.</td><td>Added a rule so documentation images scale to 100% of the card width.</td></tr>
+        <tr><td>Round 3</td><td>Re-checked all 23 pages in Chromium at 375px, 768px and 1280px: 0 console errors, 0 failed requests, 0 pages scrolling sideways, every image loaded with alt text, every choice button at least 44px tall.</td><td>No changes needed.</td></tr>
+      </table>
+      </div>
+
+      <h2 id="feedback">5. User feedback</h2>
+      <p><strong>Method:</strong> sit four people from the target audience in front of the site on their own phone, say nothing, and write down where they hesitate. Ask three questions afterwards: did any choice feel pointless, did you want to replay, and was anything hard to read?</p>
+      <p>Record each tester separately. Vague notes like "they liked it" earn nothing. The example row below shows the level of detail needed.</p>
+      <div class="table-scroll">
+      <table>
+        <tr><th>Tester</th><th>Device</th><th>What they said or did</th><th>Change made</th></tr>
+        <tr>
+          <td><em>Example</em></td>
+          <td><em>iPhone 12</em></td>
+          <td><em>Got to page9 and said "I don't know what Morse code does", then tapped the other choice. Read the ending text twice.</em></td>
+          <td><em>Reworded the page9 choice to "Flash a torch in Morse code" so it says what the action is.</em></td>
+        </tr>
+        <tr><td>Tester 1</td><td></td><td></td><td></td></tr>
+        <tr><td>Tester 2</td><td></td><td></td><td></td></tr>
+        <tr><td>Tester 3</td><td></td><td></td><td></td></tr>
+        <tr><td>Tester 4</td><td></td><td></td><td></td></tr>
+      </table>
+      </div>
+
+      <h2 id="evaluation">6. Evaluation</h2>
+
+      <h3>Strengths</h3>
+      <ul>
+        <li>The branching holds up. 16 decision pages, 6 genuinely different endings, no dead ends and nothing unreachable, which was confirmed by testing rather than assumed.</li>
+        <li>The twist is earned. Four separate clues point at the green steamer before it appears, so the ghost ship ending feels planned instead of random.</li>
+        <li>Paths rejoin on purpose. Several routes meet at page14 and page16, which keeps the page count manageable without making the choices feel fake, because the reader arrives with different information each time.</li>
+        <li>It is genuinely accessible: all four colour combinations pass WCAG AA, every image has alt text, and the animation respects reduced motion settings.</li>
+        <li>One stylesheet drives 23 pages, so the layout is identical everywhere and a colour change is a one line edit.</li>
+      </ul>
+
+      <h3>Weaknesses</h3>
+      <ul>
+        <li>Choices are not remembered. Firing the flare on page5 has no effect on any later page, so some decisions change the route but not the world.</li>
+        <li>Page 11 loops back to page6, which a reader who has already been there will notice and may read as a mistake.</li>
+        <li>The artwork is simple shapes. It sets the mood but it will not impress anyone next to a real illustration.</li>
+        <li>Only one sound, and it is only on the opening page.</li>
+        <li>Endings 1 and 6 are both good outcomes and sit quite close together in tone.</li>
+      </ul>
+
+      <h3>Improvements, in the order worth doing</h3>
+      <ol>
+        <li>Store one or two flags in <code>localStorage</code>, such as whether the flare was fired or the diary was read, and change a sentence on a later page to match. That would turn the branching into something closer to a real game state.</li>
+        <li>Add an endings tracker, so a replayer can see which of the 6 they have found. That is the single best replay hook and it is about fifteen lines of code.</li>
+        <li>Give page11 its own content instead of sending the reader back to page6.</li>
+        <li>Add a short sound to each ending so the payoff is not silent.</li>
+        <li>Pull endings 1 and 6 further apart, so that one is clearly the lucky escape and the other is clearly the earned win.</li>
+      </ol>
+
+      <h2>Syllabus outcomes</h2>
+      <table>
+        <tr><th>Outcome</th><th>Where it is evidenced</th></tr>
+        <tr><td>TE5-1DP, define problems and design opportunities</td><td>Section 1: problem, audience, user needs and the four factors</td></tr>
+        <tr><td>TE5-2DP, generate and document design ideas</td><td>Section 2: flowchart, wireframes, colour and font plan, timeline</td></tr>
+        <tr><td>TE5-3DP, safe, ethical and sustainable digital practice</td><td>Section 3: original assets, no data collection, accessibility, file size</td></tr>
+        <tr><td>TE5-4DP, testing and evaluation</td><td>Sections 4, 5 and 6: link and device testing, problems and fixes, user feedback method, evaluation</td></tr>
+      </table>
+
+      <ul class="choices">
+        <li><a class="choice" href="index.html">Back to the story</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <footer>
+    <a href="index.html">Restart the story</a>
+  </footer>
+
+</body>
+</html>
