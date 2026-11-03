@@ -149,7 +149,7 @@
         <tr><td>Code quality</td><td>Two space indentation throughout, comments above each block in the HTML and section comments in the CSS, semantic tags (<code>header</code>, <code>main</code>, <code>article</code>, <code>figure</code>, <code>footer</code>) rather than plain divs.</td></tr>
         <tr><td>Ethical practice</td><td>Every image is original SVG drawn for this project and the storm audio was generated from scratch, so there is no copyright issue. No tracking, no cookies and no data collected from the player.</td></tr>
         <tr><td>Accessibility</td><td>Alt text on all 11 images (10 story scenes plus the flowchart), <code>lang="en"</code> on every page, one h1 per page, a unique meta description per page, and <code>prefers-reduced-motion</code> support so the beam animation stops for anyone who gets motion sick.</td></tr>
-        <tr><td>Sustainable practice</td><td>Story pages load in about 6KB to 17KB, counting the HTML, the shared stylesheet and any SVG scene. This documentation page is the heaviest at about 89KB, because the flowchart is a detailed SVG. The storm audio adds 63KB on the seven pages that have sound, but <code>preload="none"</code> means it is only downloaded if the player presses play. Using SVG instead of photos and reusing one audio file is what keeps these numbers small.</td></tr>
+        <tr><td>Sustainable practice</td><td>Story pages load in about 6KB to 17KB, counting the HTML, the shared stylesheet and any SVG scene. This documentation page is the heaviest at about 90KB, because the flowchart is a detailed SVG. The storm audio adds 63KB on the seven pages that have sound, but <code>preload="none"</code> means it is only downloaded if the player presses play. Using SVG instead of photos and reusing one audio file is what keeps these numbers small.</td></tr>
       </table>
 
       <h2 id="testing">4. Testing</h2>
@@ -335,7 +335,26 @@
       </div>
 
       <h2 id="feedback">5. User feedback</h2>
-      <p><strong>Method:</strong> sit four people from the target audience in front of the site on their own phone, say nothing, and write down where they hesitate. Ask three questions afterwards: did any choice feel pointless, did you want to replay, and was anything hard to read?</p>
+      <p><strong>Method:</strong> sit four people from the target audience in front of the site on their own device, say nothing while they play, and write down where they hesitate. Watch five specific moments rather than the whole run, because trying to notice everything means noticing nothing.</p>
+
+      <h3>What to watch for</h3>
+      <table>
+        <tr><th>Where</th><th>What to look for</th></tr>
+        <tr><td><code>index.html</code></td><td>Do they notice the audio player at all, or scroll straight past the image? The player sits below the story text, so it is easy to miss.</td></tr>
+        <tr><td><code>page4</code></td><td>The Morse code choice. Does "Flash a torch in Morse code instead" read clearly, or do they hesitate because they are not sure what it does?</td></tr>
+        <tr><td><code>page11</code> and <code>page17</code></td><td>This route used to loop back to a page the reader had already seen. It now leads to its own page17 instead. Check that the new page reads as a continuation and not as a repeat.</td></tr>
+        <tr><td><code>page16</code></td><td>The two lights. Did the green clues on pages 2, 3, 7 and 13 land? Ask straight afterwards: "did you see that coming?" If they say no, the foreshadowing is too quiet.</td></tr>
+        <tr><td>Whichever ending they hit</td><td>Do they tap Play again or close the tab? This is the replay evidence, and it is the one thing you cannot get by asking.</td></tr>
+      </table>
+
+      <h3>Three questions afterwards</h3>
+      <ol>
+        <li>Did any choice feel pointless?</li>
+        <li>Did you want to replay it?</li>
+        <li>Was anything hard to read?</li>
+      </ol>
+
+      <p>For each tester record the device, the exact spot they hesitated, what they said, and what was changed because of it. A row that says no change was made, with the reason, is fine and shows judgement.</p>
       <p>Record each tester separately. Vague notes like "they liked it" earn nothing. The example row below shows the level of detail needed.</p>
       <p><strong>Not yet completed.</strong> The rows below are blank because user testing has not been run. The three changes logged as Round 4 in section 4.3 came from a design review, not from users, and they are recorded there rather than here so the two are not confused.</p>
       <div class="table-scroll">
