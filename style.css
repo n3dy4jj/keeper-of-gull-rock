@@ -292,3 +292,10 @@ footer a {
   font-size: 0.9rem;
   margin-top: -0.5rem;
 }
+
+/* Note under an ending telling the player how many endings exist */
+.end-note {
+  font-family: Verdana, sans-serif;
+  font-size: 0.85rem;
+  color: #b9c9da;
+}

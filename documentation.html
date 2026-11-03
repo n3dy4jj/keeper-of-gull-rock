@@ -149,7 +149,7 @@
         <tr><td>Code quality</td><td>Two space indentation throughout, comments above each block in the HTML and section comments in the CSS, semantic tags (<code>header</code>, <code>main</code>, <code>article</code>, <code>figure</code>, <code>footer</code>) rather than plain divs.</td></tr>
         <tr><td>Ethical practice</td><td>Every image is original SVG drawn for this project and the storm audio was generated from scratch, so there is no copyright issue. No tracking, no cookies and no data collected from the player.</td></tr>
         <tr><td>Accessibility</td><td>Alt text on all 11 images (10 story scenes plus the flowchart), <code>lang="en"</code> on every page, one h1 per page, a unique meta description per page, and <code>prefers-reduced-motion</code> support so the beam animation stops for anyone who gets motion sick.</td></tr>
-        <tr><td>Sustainable practice</td><td>Story pages load in about 6KB to 16KB, counting the HTML, the shared stylesheet and any SVG scene. This documentation page is the heaviest at about 89KB, because the flowchart is a detailed SVG. The storm audio adds 63KB on the seven pages that have sound, but <code>preload="none"</code> means it is only downloaded if the player presses play. Using SVG instead of photos and reusing one audio file is what keeps these numbers small.</td></tr>
+        <tr><td>Sustainable practice</td><td>Story pages load in about 6KB to 17KB, counting the HTML, the shared stylesheet and any SVG scene. This documentation page is the heaviest at about 89KB, because the flowchart is a detailed SVG. The storm audio adds 63KB on the seven pages that have sound, but <code>preload="none"</code> means it is only downloaded if the player presses play. Using SVG instead of photos and reusing one audio file is what keeps these numbers small.</td></tr>
       </table>
 
       <h2 id="testing">4. Testing</h2>
@@ -327,13 +327,17 @@
         <tr><td>Round 3</td><td>Sound was on 1 page out of 23, which is not enough to count as multimedia across the site.</td><td>Added the same audio block to all six ending pages, so sound now plays on 7 pages.</td></tr>
         <tr><td>Round 3</td><td>Section 3 claimed the site was "well under 200KB", which was a guess and not a measurement.</td><td>Measured the real page weights and put the actual figures in. Those numbers are now generated from the files themselves when this page is built, so they cannot drift out of date.</td></tr>
         <tr><td>Round 3</td><td>Section 3 said 10 images have alt text. The flowchart on this page is an eleventh image.</td><td>Corrected the count to 11.</td></tr>
-        <tr><td>Round 4</td><td>Re-checked all 24 pages in Chromium at 375px, 768px and 1280px: 0 console errors, 0 failed requests, 0 pages scrolling sideways, every image loaded with alt text, every choice button at least 44px tall, every page has a unique meta description.</td><td>No changes needed.</td></tr>
+        <tr><td>Round 4</td><td>Design review of the opening page: the heading sat above the scene image, so the first thing on screen was a line of text rather than the picture.</td><td>Moved the image above the h1 so the scene lands first.</td></tr>
+        <tr><td>Round 4</td><td>A player who reached an ending had no way of knowing other endings existed, so there was nothing prompting a replay.</td><td>Each ending now says which one it is out of six and states that the others are reachable by different choices.</td></tr>
+        <tr><td>Round 4</td><td>The 1954 logbook entry was unsigned, so there was nothing linking it to the diary on page7 or the name carved on the cottage door.</td><td>The entry is now signed W. Hart, which ties the three clues together.</td></tr>
+        <tr><td>Round 5</td><td>Re-checked all 24 pages in Chromium at 375px, 768px and 1280px: 0 console errors, 0 failed requests, 0 pages scrolling sideways, every image loaded with alt text, every choice button at least 44px tall, every page has a unique meta description.</td><td>No changes needed.</td></tr>
       </table>
       </div>
 
       <h2 id="feedback">5. User feedback</h2>
       <p><strong>Method:</strong> sit four people from the target audience in front of the site on their own phone, say nothing, and write down where they hesitate. Ask three questions afterwards: did any choice feel pointless, did you want to replay, and was anything hard to read?</p>
       <p>Record each tester separately. Vague notes like "they liked it" earn nothing. The example row below shows the level of detail needed.</p>
+      <p><strong>Not yet completed.</strong> The rows below are blank because user testing has not been run. The three changes logged as Round 4 in section 4.3 came from a design review, not from users, and they are recorded there rather than here so the two are not confused.</p>
       <div class="table-scroll">
       <table>
         <tr><th>Tester</th><th>Device</th><th>What they said or did</th><th>Change made</th></tr>
