@@ -299,3 +299,16 @@ footer a {
   font-size: 0.85rem;
   color: #b9c9da;
 }
+
+/* Play again is an outline button, so it never reads as another story choice */
+.choice.replay {
+  background: transparent;
+  color: var(--light);
+  border: 2px solid var(--light);
+}
+
+.choice.replay:hover,
+.choice.replay:focus {
+  background: var(--light);
+  color: var(--sea);
+}

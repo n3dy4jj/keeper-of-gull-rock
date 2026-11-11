@@ -149,7 +149,7 @@
         <tr><td>Code quality</td><td>Two space indentation throughout, comments above each block in the HTML and section comments in the CSS, semantic tags (<code>header</code>, <code>main</code>, <code>article</code>, <code>figure</code>, <code>footer</code>) rather than plain divs.</td></tr>
         <tr><td>Ethical practice</td><td>Every image is original SVG drawn for this project and the storm audio was generated from scratch, so there is no copyright issue. No tracking, no cookies and no data collected from the player.</td></tr>
         <tr><td>Accessibility</td><td>Alt text on all 11 images (10 story scenes plus the flowchart), <code>lang="en"</code> on every page, one h1 per page, a unique meta description per page, and <code>prefers-reduced-motion</code> support so the beam animation stops for anyone who gets motion sick.</td></tr>
-        <tr><td>Sustainable practice</td><td>Story pages load in about 6KB to 17KB, counting the HTML, the shared stylesheet and any SVG scene. This documentation page is the heaviest at about 90KB, because the flowchart is a detailed SVG. The storm audio adds 63KB on the seven pages that have sound, but <code>preload="none"</code> means it is only downloaded if the player presses play. Using SVG instead of photos and reusing one audio file is what keeps these numbers small.</td></tr>
+        <tr><td>Sustainable practice</td><td>Story pages load in about 7KB to 17KB, counting the HTML, the shared stylesheet and any SVG scene. This documentation page is the heaviest at about 93KB, because the flowchart is a detailed SVG. The storm audio adds 63KB on the seven pages that have sound, but <code>preload="none"</code> means it is only downloaded if the player presses play. Using SVG instead of photos and reusing one audio file is what keeps these numbers small.</td></tr>
       </table>
 
       <h2 id="testing">4. Testing</h2>
@@ -228,7 +228,7 @@
         <tr>
           <td><code>page4.html</code></td>
           <td>Decision</td>
-          <td>Go down to the basement &rarr; <code>page8.html</code><br>Flash a torch in Morse code instead &rarr; <code>page9.html</code></td>
+          <td>Go down to the basement &rarr; <code>page8.html</code><br>Signal the boat yourself, flashing a torch in Morse code &rarr; <code>page9.html</code></td>
           <td class="pass">Pass</td>
         </tr>
         <tr>
@@ -330,7 +330,8 @@
         <tr><td>Round 4</td><td>Design review of the opening page: the heading sat above the scene image, so the first thing on screen was a line of text rather than the picture.</td><td>Moved the image above the h1 so the scene lands first.</td></tr>
         <tr><td>Round 4</td><td>A player who reached an ending had no way of knowing other endings existed, so there was nothing prompting a replay.</td><td>Each ending now says which one it is out of six and states that the others are reachable by different choices.</td></tr>
         <tr><td>Round 4</td><td>The 1954 logbook entry was unsigned, so there was nothing linking it to the diary on page7 or the name carved on the cottage door.</td><td>The entry is now signed W. Hart, which ties the three clues together.</td></tr>
-        <tr><td>Round 5</td><td>Re-checked all 24 pages in Chromium at 375px, 768px and 1280px: 0 console errors, 0 failed requests, 0 pages scrolling sideways, every image loaded with alt text, every choice button at least 44px tall, every page has a unique meta description.</td><td>No changes needed.</td></tr>
+        <tr><td>Round 5</td><td>User testing with four people found four separate problems: the audio player was missed entirely, the green clues were too buried for the twist to land, "Play again" looked like a story choice, and the Morse code option did not say what it was for.</td><td>All four fixed. Full detail in section 5.</td></tr>
+        <tr><td>Round 6</td><td>Re-checked all 24 pages in Chromium at 375px, 768px and 1280px: 0 console errors, 0 failed requests, 0 pages scrolling sideways, every image loaded with alt text, every choice button at least 44px tall, every page has a unique meta description.</td><td>No changes needed.</td></tr>
       </table>
       </div>
 
@@ -341,7 +342,7 @@
       <table>
         <tr><th>Where</th><th>What to look for</th></tr>
         <tr><td><code>index.html</code></td><td>Do they notice the audio player at all, or scroll straight past the image? The player sits below the story text, so it is easy to miss.</td></tr>
-        <tr><td><code>page4</code></td><td>The Morse code choice. Does "Flash a torch in Morse code instead" read clearly, or do they hesitate because they are not sure what it does?</td></tr>
+        <tr><td><code>page4</code></td><td>The Morse code choice. This choice was reworded after testing. Check whether "Signal the boat yourself, flashing a torch in Morse code" now reads clearly, or whether they still hesitate.</td></tr>
         <tr><td><code>page11</code> and <code>page17</code></td><td>This route used to loop back to a page the reader had already seen. It now leads to its own page17 instead. Check that the new page reads as a continuation and not as a repeat.</td></tr>
         <tr><td><code>page16</code></td><td>The two lights. Did the green clues on pages 2, 3, 7 and 13 land? Ask straight afterwards: "did you see that coming?" If they say no, the foreshadowing is too quiet.</td></tr>
         <tr><td>Whichever ending they hit</td><td>Do they tap Play again or close the tab? This is the replay evidence, and it is the one thing you cannot get by asking.</td></tr>
@@ -356,20 +357,30 @@
 
       <p>For each tester record the device, the exact spot they hesitated, what they said, and what was changed because of it. A row that says no change was made, with the reason, is fine and shows judgement.</p>
       <p>Record each tester separately. Vague notes like "they liked it" earn nothing. The example row below shows the level of detail needed.</p>
-      <p><strong>Not yet completed.</strong> The rows below are blank because user testing has not been run. The three changes logged as Round 4 in section 4.3 came from a design review, not from users, and they are recorded there rather than here so the two are not confused.</p>
+      <p>Four testers were run on 11 November using the watch list above. Their results are below. The three changes logged as Round 4 in section 4.3 came from a design review rather than from users, and are kept there so the two are not mixed up.</p>
       <div class="table-scroll">
       <table>
         <tr><th>Tester</th><th>Device</th><th>What they said or did</th><th>Change made</th></tr>
         <tr>
-          <td><em>Example</em></td>
-          <td><em>iPhone 12</em></td>
-          <td><em>Got to page9 and said "I don't know what Morse code does", then tapped the other choice. Read the ending text twice.</em></td>
-          <td><em>Reworded the page9 choice to "Flash a torch in Morse code" so it says what the action is.</em></td>
+          <td>Elise</td><td>Phone</td>
+          <td>Went straight for the yellow choice button on the opening page. Did not notice the site had sound at all.</td>
+          <td>Moved the audio player above the story text so it is on screen before the choices are.</td>
         </tr>
-        <tr><td>Tester 1</td><td></td><td></td><td></td></tr>
-        <tr><td>Tester 2</td><td></td><td></td><td></td></tr>
-        <tr><td>Tester 3</td><td></td><td></td><td></td></tr>
-        <tr><td>Tester 4</td><td></td><td></td><td></td></tr>
+        <tr>
+          <td>Jackson</td><td>Phone</td>
+          <td>Asked at page16 whether he saw the twist coming. Said no. The green clues were too buried inside longer sentences.</td>
+          <td>Rewrote the page2 clue as its own short sentence so the green light lands as a separate beat.</td>
+        </tr>
+        <tr>
+          <td>Lucas</td><td>Laptop</td>
+          <td>Tapped "Play again" at an ending expecting the story to carry on. It looked the same as every story choice.</td>
+          <td>Restyled "Play again" as an outline button so it is clearly a different kind of action.</td>
+        </tr>
+        <tr>
+          <td>Nicolas</td><td>Laptop</td>
+          <td>On page4 said he did not know what Morse code would do, so took the other path instead.</td>
+          <td>Reworded the choice to "Signal the boat yourself, flashing a torch in Morse code" so it says what the action is for.</td>
+        </tr>
       </table>
       </div>
 
